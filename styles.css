@@ -376,36 +376,52 @@ nav>a[aria-current]:not(.button) {
   background: linear-gradient(90deg,#092d47,#071c2c);
 }
 
-/* Solo dos colaboradores, con el mismo espacio visual y sin deformar sus marcas.
-   Se conserva el PNG original; el fondo claro permite leer los colores originales. */
+/* Franja compacta: dos marcas centradas, sin tarjetas ni fondos blancos.
+   Los filtros son solo de presentación; se conservan los archivos originales. */
 .brand-list {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(16px, 4vw, 48px);
-  max-width: 620px;
-  padding-block: 26px;
+  align-items: center;
+  justify-items: center;
+  gap: clamp(24px, 6vw, 72px);
+  max-width: 520px;
+  padding-block: 16px;
 }
 
 .collaboration-logo {
+  position: relative;
   display: grid;
   place-items: center;
+  width: 100%;
   min-width: 0;
-  height: clamp(76px, 13vw, 112px);
-  padding: 12px;
-  background: #fff;
-  border-radius: 4px;
+  height: clamp(36px, 5vw, 48px);
+  overflow: hidden;
 }
 
 .collaboration-logo img {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: contain;
+  object-position: center;
 }
 
-/* Este PNG tiene mucho margen superior/inferior; cover ajusta el encuadre
-   dentro del contenedor sin alterar el archivo ni las proporciones del logo. */
+/* Aula Campus incluye blanco en el propio PNG: invertirlo y usar screen
+   elimina visualmente ese fondo sobre azul, conservando el contorno de la marca. */
+.collaboration-logo:first-child {
+  mix-blend-mode: screen;
+}
+
+.collaboration-logo:first-child img {
+  filter: grayscale(1) invert(1);
+}
+
+/* El segundo PNG es transparente y tiene amplios márgenes verticales.
+   cover los recorta dentro de la franja; el logo queda centrado sin deformación. */
 .collaboration-logo:last-child img {
   object-fit: cover;
+  filter: grayscale(1) brightness(3);
 }
 
 /* 07 · SOBRE MÍ. */
@@ -1004,9 +1020,6 @@ footer {
   }
   .hero .eyebrow {
     margin-bottom: 17px;
-  }
-  .brand-list {
-    padding-block: 29px;
   }
   .about-grid {
     grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr);

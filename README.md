@@ -100,4 +100,4 @@ Prompts utilizados (resumen): preservar identidad, estructura facial, tono y tex
 
 ## Colaboraciones
 
-La franja entre hero y Sobre mí muestra únicamente Aula Campus y Mundo de Fantasía. Los PNG originales están en `assets/images/logo-aula-campus.png` y `assets/images/logo-mundo-fantasia.png`. Se presentan sobre fondo claro sin modificar ni deformar las marcas. Su disposición se controla en `.brand-list` y `.collaboration-logo` de `styles.css`.
+La franja entre hero y Sobre mí muestra únicamente Aula Campus y Mundo de Fantasía. Los PNG originales están en `assets/images/logo-aula-campus.png` y `assets/images/logo-mundo-fantasia.png`. Se presentan centrados sobre el azul de la franja, sin tarjetas blancas. Los filtros CSS adaptan el contraste de los PNG originales sin modificar sus archivos. Su disposición se controla en `.brand-list` y `.collaboration-logo` de `styles.css`.

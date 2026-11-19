@@ -1,0 +1,15 @@
+# Archivos locales: no forman parte de la web.
+.DS_Store
+Thumbs.db
+.env
+.env.*
+!.env.example
+*.log
+__pycache__/
+.venv/
+node_modules/
+.vscode/
+.idea/
+tmp/
+output/
+*.zip
